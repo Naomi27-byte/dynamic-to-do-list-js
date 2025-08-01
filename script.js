@@ -15,44 +15,44 @@ document.addEventListener('DOMContentLoaded', () => {
             return; // Exit the function if the input is empty
         }
 
-        // Create new list item (li)
+        // --- Task Creation and Removal (The part you need to complete) ---
+        // 1. Create a new li element
         const listItem = document.createElement('li');
         listItem.textContent = taskText;
 
-        // Create the remove button
+        // 2. Create a new button for removing the task
         const removeButton = document.createElement('button');
         removeButton.textContent = "Remove";
         removeButton.className = 'remove-btn';
 
-        // Add a click event listener to the remove button
+        // 3. Assign an onclick event to the remove button
         removeButton.onclick = function() {
             // Remove the parent li element from the list
             taskList.removeChild(listItem);
         };
 
-        // Append the remove button to the list item
+        // 4. Append the remove button to the li element
         listItem.appendChild(removeButton);
 
-        // Append the new list item to the task list
+        // 5. Append the li to the taskList
         taskList.appendChild(listItem);
 
-        // Clear the input field
+        // 6. Clear the task input field
         taskInput.value = '';
     };
 
-    // Attach event listeners
-    // 1. Add task on button click
+    // --- Attach Event Listeners (The part you need to complete) ---
+    // 1. Add an event listener to addButton that calls addTask
     addButton.addEventListener('click', addTask);
 
-    // 2. Add task on "Enter" key press
+    // 2. Add an event listener for the 'keypress' event on taskInput
     taskInput.addEventListener('keypress', (event) => {
         if (event.key === 'Enter') {
             addTask();
         }
     });
 
-    // The provided instruction "Invoke the addTask function on DOMContentLoaded" seems to be a mistake
-    // as it would add an empty task on page load. The core functionality is driven by the event listeners.
-    // However, if the user had provided a starting task, this would be the place to load it.
-    // For this specific implementation, we will not call addTask here.
+    // Note: The instruction to "Invoke the addTask function on DOMContentLoaded"
+    // is typically for loading existing tasks on page load, not for adding a new one.
+    // The event listeners handle adding new tasks as the user interacts with the page.
 });
